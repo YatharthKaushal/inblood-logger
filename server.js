@@ -15,7 +15,10 @@ app.get("/health", (req, res) => {
   sendResponse(res, 200, "ok", null, null);
 });
 
+app.use("/api", apiRoutes);
+
 app.use((req, res) => {
+  console.log("404 Not Found:", req.method, req.originalUrl);
   sendResponse(
     res,
     404,
@@ -24,8 +27,6 @@ app.use((req, res) => {
     `${req.method} ${req.originalUrl} does not exist`
   );
 });
-
-app.use("/api", apiRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

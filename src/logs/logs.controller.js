@@ -7,22 +7,29 @@ import { sendResponse } from "../../utils/response.util.js";
  * @response { message: "logs api route working", data: null, error: null }
  */
 export const logHealth = async (req, res) => {
-  return sendResponse(res, 200, "logs api route working", null, null);
+  console.log("Request:", req.method, req.originalUrl);
+  const response = sendResponse(res, 200, "logs api route working", null, null);
+  console.log("Response: 200 logs api route working");
+  return response;
 };
 
 /**
  * @route POST /api/logs
- * @desc Prints received data to console
- * @body { data: string }
+ * @desc Prints received message and data to console
+ * @body { message: string|null, data: object|null }
  * @response { message: "Log printed", data: null, error: null }
  */
 export const printLog = async (req, res) => {
-  const { data } = req.body;
+  console.log("Request:", req.method, req.originalUrl, req.body);
+  const { message, data } = req.body;
 
-  if (!data) {
-    return sendResponse(res, 400, "Missing required field", null, "data field is required");
+  if (message) console.log("Message:", message);
+  if (data) {
+    console.log("Data:", data);
+    console.table(data);
   }
 
-  console.log(data);
-  return sendResponse(res, 200, "Log printed", null, null);
+  const response = sendResponse(res, 200, "Log printed", null, null);
+  console.log("Response: 200 Log printed");
+  return response;
 };

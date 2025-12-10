@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { logHealth, printLog } from "./logs.controller.js";
+import { validate } from "../../middlewares/validate.middleware.js";
+import { printLogSchema } from "./logs.validation.js";
 
 const router = Router();
 
@@ -13,10 +15,10 @@ router.get("/health", logHealth);
 
 /**
  * @route POST /api/logs
- * @desc Prints received data to console
- * @body { data: string }
+ * @desc Prints received message and data to console
+ * @body { message: string|null, data: object|null }
  * @response { message: "Log printed", data: null, error: null }
  */
-router.post("/", printLog);
+router.post("/", validate(printLogSchema), printLog);
 
 export default router;

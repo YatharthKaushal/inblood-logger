@@ -8,3 +8,4 @@
 - always add JSDoc style comments over api endpoint route and its respective contoller mentioning complete api route along with exact expected req body and res body when success
 - follow folder structure strictly
 - console log all the errors (do not use warn or error, just simple `console.log()`; no emojis); console log req and res
+- implement proper validation on expected req body, if fails, return response with appropriate message and error status code
