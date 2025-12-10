@@ -7,3 +7,4 @@
 - add concise JSDoc style comments (not extensively but when either things are very complicated or when it is necessary)
 - always add JSDoc style comments over api endpoint route and its respective contoller mentioning complete api route along with exact expected req body and res body when success
 - follow folder structure strictly
+- console log all the errors (do not use warn or error, just simple `console.log()`; no emojis); console log req and res
