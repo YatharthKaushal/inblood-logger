@@ -10,7 +10,11 @@ export const validate = (schema) => (req, res, next) => {
 
   if (error) {
     const errorMessage = error.details.map((d) => d.message).join(", ");
-    console.log("Validation error:", errorMessage);
+    console.log("Validation error:", req.method, req.originalUrl);
+    console.log("Body:", req.body);
+    console.log("Params:", req.params);
+    console.log("Query:", req.query);
+    console.log("Error:", errorMessage);
     return sendResponse(res, 400, "Validation failed", null, errorMessage);
   }
 
