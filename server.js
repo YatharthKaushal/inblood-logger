@@ -6,10 +6,12 @@ import { sendResponse } from "./utils/response.util.js";
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
+  console.log("We are Logging...");
   sendResponse(res, 200, "Welcome to inBlood API", null, null);
 });
 
 app.get("/health", (req, res) => {
+  console.log("We are Healthy...");
   sendResponse(res, 200, "ok", null, null);
 });
 
