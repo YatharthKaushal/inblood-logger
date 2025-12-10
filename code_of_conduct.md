@@ -1,0 +1,9 @@
+- modularize the code in a way that code can be reused when needed
+- follow DRY
+- implement proper error handling
+- consider all the edge cases
+- keep it simple
+- consider developer experience and readability of the code
+- add concise JSDoc style comments (not extensively but when either things are very complicated or when it is necessary)
+- always add JSDoc style comments over api endpoint route and its respective contoller mentioning complete api route along with exact expected req body and res body when success
+- follow folder structure strictly
