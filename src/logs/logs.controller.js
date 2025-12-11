@@ -25,7 +25,7 @@ export const printLog = async (req, res) => {
 
   if (message) console.log("Message:", message);
   if (data) {
-    console.log("Data:", data);
+    // console.log("Data:", data);
     console.table(data);
   }
 
